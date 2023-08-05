@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Box,
   List,
@@ -18,7 +19,7 @@ import {
   ModeNight,
 } from "@mui/icons-material";
 
-const Sidebar = () => {
+const Sidebar = ({ setMode, mode }) => {
   return (
     <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed">
@@ -81,11 +82,13 @@ const Sidebar = () => {
           </ListItem>
           {/*  */}
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+            <ListItemButton component="a" href="#list">
               <ListItemIcon>
                 <ModeNight />
               </ListItemIcon>
-              <Switch />
+              <Switch
+                onChange={() => setMode(mode === "light" ? "dark" : "light")}
+              />
             </ListItemButton>
           </ListItem>
         </List>
