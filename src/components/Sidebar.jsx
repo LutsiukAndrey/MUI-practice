@@ -20,10 +20,23 @@ import {
   WbSunny,
 } from "@mui/icons-material";
 
-const Sidebar = ({ setMode, mode }) => {
+const Sidebar = ({ setMode, mode, sideBarOpen }) => {
   return (
-    <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
-      <Box position="fixed">
+    <Box
+      flex={1}
+      p={2}
+      sx={{
+        // display: { xs: "none", sm: "block" },
+        position: { xs: "absolute", sm: "relative" },
+      }}
+      display={sideBarOpen ? "block" : "none"}
+    >
+      <Box
+        position="fixed"
+        bgcolor={"background.default"}
+        zIndex={2}
+        borderRadius={5}
+      >
         <List>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   AppBar,
   Avatar,
@@ -35,7 +36,7 @@ const Icons = styled(Box)(({ theme }) => ({
     display: "flex",
   },
 }));
-const Navbar = () => {
+const Navbar = ({ setSidebarOpen, sideBarOpen }) => {
   const [open, setOpen] = useState(false);
 
   const UserBox = styled(Box)(({ theme }) => ({
@@ -53,7 +54,10 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           SDGDG
         </Typography>
-        <PetsIcon sx={{ display: { xs: "block", sm: "none" } }} />
+        <PetsIcon
+          onClick={() => setSidebarOpen(!sideBarOpen)}
+          sx={{ display: { xs: "block", sm: "none" }, cursor: "pointer" }}
+        />
         <Search>
           <InputBase placeholder="search" />{" "}
         </Search>
