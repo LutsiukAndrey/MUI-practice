@@ -17,6 +17,7 @@ import {
   Settings,
   AccountBox,
   ModeNight,
+  WbSunny,
 } from "@mui/icons-material";
 
 const Sidebar = ({ setMode, mode }) => {
@@ -84,11 +85,14 @@ const Sidebar = ({ setMode, mode }) => {
           <ListItem disablePadding>
             <ListItemButton component="a" href="#list">
               <ListItemIcon>
-                <ModeNight />
+                <WbSunny />
               </ListItemIcon>
               <Switch
                 onChange={() => setMode(mode === "light" ? "dark" : "light")}
               />
+              <ListItemIcon>
+                <ModeNight />
+              </ListItemIcon>
             </ListItemButton>
           </ListItem>
         </List>
